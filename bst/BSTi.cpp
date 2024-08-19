@@ -81,6 +81,22 @@ void em_Ordem(arvore *l){
     }
 }
 
+void pre_Ordem(arvore *l) {
+    if(l != NULL) {
+        imprimir_item(l->item); // Processa o nó atual
+        pre_Ordem(l->esquerda);  // Visita a subárvore esquerda
+        pre_Ordem(l->direita);   // Visita a subárvore direita
+    }
+}
+
+void pos_Ordem(arvore *l) {
+    if(l != NULL) {
+        pos_Ordem(l->esquerda);  // Visita a subárvore esquerda
+        pos_Ordem(l->direita);   // Visita a subárvore direita
+        imprimir_item(l->item); // Processa o nó atual
+    }
+}
+
 arvore* buscar_no(arvore *l, int valor){
     if(l == NULL){
         return NULL;
